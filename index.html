@@ -1,8 +1,40 @@
 <!DOCTYPE html>
+<!-- 개발자들이 안쓰는 어려운 방법; 하지만 React의 본질을 이해할 수 있다 -->
+<!-- 공부할 필요 없음 -->
 <html>
-  <body></body>
+  <body>
+    <!-- ReactDOM이 React elements들을 가져다 놓을 곳 -->
+    <div id="root"></div>
+  </body>
   <!-- https://reactjs.org/docs/cdn-links.html -->
+  <!-- react JS; 엔진, interactive한 UI를 만들 수 있게 한다 -->
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!-- react-dom; React Element를 HTML에 두는 역할 -->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script></script>
+  <script>
+    const root = document.getElementById("root");
+    // 생성; 두번째 인자는 property = props 가 온다; 세번째 인자는 content가 온다
+    const h3 = React.createElement(
+      "h3",
+      {
+        id: "sexy-title",
+        style: { color: "red" },
+        // 태그 자체 속성으로 event를 넣을 수 있다; 이게 대박임
+        // 이러한 요소는 HTML에 보이지 않게 처리한다
+        onMouseEnter: () => console.log("mouse here!"),
+      },
+      "Hello I'm a span"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("im click"),
+        style: { backgroundColor: "tomato" },
+      },
+      "Click me"
+    );
+    // 세번째 인자로 배열에 element를 넣으면 div안에 들어있게 된다
+    const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root);
+  </script>
 </html>

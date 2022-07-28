@@ -1,0 +1,7 @@
+HTML을 HTML 파일에 직접 작성하지 않는다
+    모든 것이 JS에서 시작된다
+    React JS는 우리가 해왔던 방식을 거꾸로 하고 있음
+    React JS는 업데이트가 필요한 element만 업데이트를 한다
+render()
+    React element를 HTML에 배치한다는 뜻
+    사용자에게 보여준다
