@@ -5,3 +5,7 @@ HTML을 HTML 파일에 직접 작성하지 않는다
 render()
     React element를 HTML에 배치한다는 뜻
     사용자에게 보여준다
+JSX
+    JavaScript를 확장한 문법
+    생긴게 HTML이랑 비슷해서, JSX로 React 요소를 만드는게 개발자들 입장에선 굉장히 편함
+    하지만 JSX를 브라우저가 재대로 인식하지 못하기에 Babel로 변환시켜야 한다
