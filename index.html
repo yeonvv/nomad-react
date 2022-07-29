@@ -13,30 +13,23 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    // 함수로 만들어 줘야 포함시킬 수 있다
-    const Title = () => (
-      <h3 id="title" onMouseEnter={() => console.log("mouse here!")}>
-        Hello I'm a title
-      </h3>
-    );
-
-    const Button = () => (
-      <button
-        onClick={() => console.log("im click")}
-        style={{ backgroundColor: "tomato" }}
-      >
-        Click me
-      </button>
-    );
-
-    // 포함 시킬때는 일반적인 HTML 태그인것 처럼 포함시켜준다
+    let counter = 0;
+    function countUp() {
+      counter += 1;
+      // 처음 렌더링 하고 값이 바뀔때마다 UI도 즉각 바뀌게 하려면 rendering을 해줘야 한다
+      render();
+    }
+    function render() {
+      ReactDOM.render(<Container />, root);
+    }
     const Container = () => (
       // 여러 컴포넌트들을 만들어 합쳐주는 것
       <div>
-        <Title />
-        <Button />
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
       </div>
     );
-    ReactDOM.render(<Container />, root);
+    // 페이지를 첫 로드하면 가장먼저 실행
+    render();
   </script>
 </html>

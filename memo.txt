@@ -2,13 +2,17 @@ HTML을 HTML 파일에 직접 작성하지 않는다
     모든 것이 JS에서 시작된다
     React JS는 우리가 해왔던 방식을 거꾸로 하고 있음
     React JS는 업데이트가 필요한 element만 업데이트를 한다
-render()
-    React element를 HTML에 배치한다는 뜻
+
+render(): React element를 HTML에 배치한다는 뜻
     사용자에게 보여준다
-JSX
-    JavaScript를 확장한 문법
+
+JSX : JavaScript를 확장한 문법
     생긴게 HTML이랑 비슷해서, JSX로 React 요소를 만드는게 개발자들 입장에선 굉장히 편함
     하지만 JSX를 브라우저가 재대로 인식하지 못하기에 Babel로 변환시켜야 한다
     컴포넌트
         컴포넌트의 첫글자는 반드시 대문자여야 한다
         소문자면 HTML 태그로 인식을 해버린다
+
+state : 기본적으로 데이터가 저장되는 곳
+
+React.js는 UI에서 바뀐 부분만 업데이트 해준다
