@@ -13,23 +13,20 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function countUp() {
-      counter += 1;
-      // 처음 렌더링 하고 값이 바뀔때마다 UI도 즉각 바뀌게 하려면 rendering을 해줘야 한다
-      render();
-    }
-    function render() {
-      ReactDOM.render(<Container />, root);
-    }
-    const Container = () => (
-      // 여러 컴포넌트들을 만들어 합쳐주는 것
-      <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
-      </div>
-    );
+
+    const App = () => {
+      const [counter, setCounter] = React.useState(0);
+      const handleCount = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={handleCount}>Click me</button>
+        </div>
+      );
+    };
     // 페이지를 첫 로드하면 가장먼저 실행
-    render();
+    ReactDOM.render(<App />, root);
   </script>
 </html>
