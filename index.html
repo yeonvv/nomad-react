@@ -1,139 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script
-      src="https://kit.fontawesome.com/97031ffe4a.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+  <head></head>
   <body>
-    <!-- ReactDOM이 React elements들을 가져다 놓을 곳 -->
     <div id="root"></div>
   </body>
-  <!-- https://reactjs.org/docs/cdn-links.html -->
-  <!-- react JS; 엔진, interactive한 UI를 만들 수 있게 한다 -->
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <!-- react-dom; React Element를 HTML에 두는 역할 -->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <!-- Babel 설치 -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const MinutesToHours = () => {
-      const [amount, setAmount] = React.useState();
-      const [inverted, setInverted] = React.useState(false);
-
-      const onChange = (event) => {
-        setAmount(event.target.value);
-      };
-      const resetValue = () => setAmount("");
-      // flip 버튼을 클릭하면 flipInput 함수가 발동하고 flipInput함수는  상태값을 반대로 바꾼다
-      const flipInput = () => {
-        resetValue();
-        setInverted((currValue) => !currValue);
-      };
-      return (
-        <div>
-          <i class="fa-solid fa-clock fa-2x"></i>
-          <div>
-            <label htmlFor="minutes">Minutes</label>
-            <input
-              value={inverted ? amount * 60 : amount}
-              id="minutes"
-              type="number"
-              placeholder="Minutes"
-              onChange={onChange}
-              // minutes는 filled값이 false이므로 false를 반환
-              // filpInput함수가 호출되면 ture로 바뀐다
-              disabled={inverted}
-            />
-          </div>
-          <div>
-            <label htmlFor="hours">Hours</label>
-            <input
-              // flipped 초기값이 false이니 마지막 false값이 도출되고
-              // flipped를 한번 클릭하면 true로 변하니 true값으로 실행
-              value={inverted ? amount : amount / 60}
-              id="hours"
-              type="number"
-              placeholder="Hours"
-              onChange={onChange}
-              // hours는 inverted값이 false이므로 true를 반환
-              // flipInput함수가 호출되면 false로 바뀐다
-              disabled={!inverted}
-            />
-          </div>
-          <button onClick={resetValue}>Reset</button>
-          <button onClick={flipInput}>
-            {inverted ? "to Hours" : "to Minutes"}
-          </button>
-        </div>
-      );
-    };
-
-    const KmToMiles = () => {
-      const [length, setLength] = React.useState();
-      const [inverted, setInverted] = React.useState(false);
-      const onChange = (event) => setLength(event.target.value);
-      const resetValue = () => setLength("");
-      const flipInput = () => {
-        resetValue();
-        setInverted((curr) => !inverted);
-      };
-      return (
-        <div>
-          <i class="fa-solid fa-ruler-combined fa-2x"></i>
-          <div>
-            <label for="km">KM</label>
-            <input
-              id="km"
-              type="number"
-              placeholder="killometers"
-              value={inverted ? length * 1.609 : length}
-              onChange={onChange}
-              disabled={inverted}
-            />
-          </div>
-          <div>
-            <label for="mile">Mile</label>
-            <input
-              id="mile"
-              type="number"
-              placeholder="miles"
-              value={inverted ? length : length / 1.609}
-              onChange={onChange}
-              disabled={!inverted}
-            />
-          </div>
-          <button onClick={resetValue}>Reset</button>
-          <button onClick={flipInput}>{inverted ? "to Mile" : "to KM"}</button>
-        </div>
-      );
-    };
-
     const App = () => {
-      const root = document.getElementById("root");
-      const [choosen, setChoosen] = React.useState("0");
-      const onChoosen = (event) => {
-        setChoosen(event.target.value);
-      };
-
-      return (
-        <div>
-          <h1>
-            Super Converter <i class="fa-solid fa-calculator"></i>
-          </h1>
-          <select onClick={onChoosen}>
-            <option value="0">Please choode an option</option>
-            <option value="1">Minutes & Hours</option>
-            <option value="2">km & miles</option>
-          </select>
-          <hr />
-          {choosen === "1" ? <MinutesToHours /> : null}
-          {choosen === "2" ? <KmToMiles /> : null}
-        </div>
-      );
+      return <div></div>;
     };
-    // 페이지를 첫 로드하면 가장먼저 실행
     ReactDOM.render(<App />, root);
   </script>
 </html>
