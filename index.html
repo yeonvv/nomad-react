@@ -8,8 +8,36 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
+    function Btn({ text, onClick }) {
+      return (
+        <button
+          onClick={onClick}
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
+    const MemorizedBtn = React.memo(Btn);
     const App = () => {
-      return <div></div>;
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
+      return (
+        // 커스텀 컴포넌트에 작성한 onClick은 이벤트 함수가 아니라 그냥 내가 정한 pops일 뿐이다
+        // 저걸 생성자 컴포넌트 button element내에서 작성하면 그것은 이벤트 함수이다
+        // 직접적으로 영향을 주는 것이 아니라 Btn컴포넌트의 props인자로 들어갔을 뿐
+        // 그래서 생성자 컴포넌트에서 실행을 시켜줘야 한다
+        <div>
+          <Btn text={value} onClick={changeValue} />
+          <Btn text={"Continue"} />
+        </div>
+      );
     };
     ReactDOM.render(<App />, root);
   </script>
